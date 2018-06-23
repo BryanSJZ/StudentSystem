@@ -1,5 +1,7 @@
 package com.nenu.software.common.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 
 @Entity

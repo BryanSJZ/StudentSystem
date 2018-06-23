@@ -55,6 +55,7 @@
                 class_id AS classId
         FROM t_student
         <include refid="listConditions" />
+        ORDER BY stu_num ASC
     </select>
 
     <sql id="listConditions">
