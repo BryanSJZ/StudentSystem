@@ -62,10 +62,10 @@
             <if test="stuName != null and stuName.length() != 0">
                 AND stu_name LIKE CONCAT('%', #{stuName}, '%')
             </if>
-            <if test="stuNum != 0">
+            <if test="stuNum != null and stuNum > 0">
                 AND stu_num = #{stuNum}
             </if>
-            <if test="classId != null">
+            <if test="classId != null and classId > 0">
                 AND class_id = #{classId}
             </if>
         </where>

@@ -45,6 +45,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public List<Student> listStudentByConditions(String stuName, long stuNum, Integer classId) throws Exception {
+        System.out.println("studentMapper = " + studentMapper);
         return studentMapper.listStudentByConditions(stuName, stuNum, classId);
     }
 
