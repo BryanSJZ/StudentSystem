@@ -1,7 +1,6 @@
-package com.nenu.software.controller.front;
+package com.nenu.software.controller.back;
 
 import com.nenu.software.common.entity.Course;
-import com.nenu.software.service.ClassService;
 import com.nenu.software.service.CourseService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import java.util.List;
  * @since 2018/6/21 19:00
  */
 @Controller
-@RequestMapping("/course")
+@RequestMapping("/backCourse")
 public class CourseController {
 
 
@@ -45,36 +44,36 @@ public class CourseController {
         return jsonObject;
     }
 
-//    /**
-//     * 新增课程（处理表单）
-//     * @param course 课程实体类
-//     * @return 处理成功页面
-//     */
-//    @RequestMapping(value = "/new",method = RequestMethod.POST)
-//    public String newCourse(Course course) {
-//        try {
-//            courseService.newCourse(course);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return "添加成功页面";
-//    }
-//
-//    /**
-//     * 删除某课程
-//     * @return 课程列表JSON对象
-//     */
-//    @RequestMapping(value = "/delete",method = RequestMethod.GET)
-//    @ResponseBody
-//    public JSONObject deleteCourse(@RequestParam("id")int id) {
-//        JSONObject jsonObject = new JSONObject();
-//        try {
-//            courseService.deleteCourseById(id);
-//            jsonObject.put("code",1);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            jsonObject.put("code",0);
-//        }
-//        return jsonObject;
-//    }
+    /**
+     * 新增课程（处理表单）
+     * @param course 课程实体类
+     * @return 处理成功页面
+     */
+    @RequestMapping(value = "/new",method = RequestMethod.POST)
+    public String newCourse(Course course) {
+        try {
+            courseService.newCourse(course);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "添加成功页面";
+    }
+
+    /**
+     * 删除某课程
+     * @return 课程列表JSON对象
+     */
+    @RequestMapping(value = "/delete",method = RequestMethod.GET)
+    @ResponseBody
+    public JSONObject deleteCourse(@RequestParam("id")int id) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            courseService.deleteCourseById(id);
+            jsonObject.put("code",1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            jsonObject.put("code",0);
+        }
+        return jsonObject;
+    }
 }

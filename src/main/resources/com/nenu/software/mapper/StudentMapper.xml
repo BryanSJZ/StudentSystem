@@ -19,8 +19,8 @@
 
     <update id="updateStudent" parameterType="com.nenu.software.common.entity.Student">
         UPDATE t_student
-        SET stu_name = #{student.stuName}, stu_num = #{student.stuNum},
-        password = #{student.password}, birthday = #{student.birthday}, class_id = #{student.classId}
+        SET
+          password = #{student.password}, birthday = #{student.birthday}
         WHERE id = #{student.id}
     </update>
 

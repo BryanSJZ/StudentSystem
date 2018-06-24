@@ -1,3 +1,4 @@
+import com.nenu.software.common.dto.ElectiveDto;
 import com.nenu.software.common.entity.Class;
 import com.nenu.software.common.entity.Elective;
 import com.nenu.software.service.ClassService;
@@ -7,6 +8,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
 
 /**
  * @author shanjz
@@ -52,4 +55,11 @@ public class ElectiveServiceTest {
     }
 
 
+    @Test
+    public void testqueryCourseAndScore() throws Exception {
+        List<ElectiveDto> list = electiveService.queryCourseAndScore(1);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).getCourseName());
+        }
+    }
 }

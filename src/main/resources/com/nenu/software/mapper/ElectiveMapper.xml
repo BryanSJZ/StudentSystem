@@ -83,4 +83,23 @@
         WHERE te.stu_id = #{stuId}
     </select>
 
+
+    <select id="queryCourseAndScore" resultType="com.nenu.software.common.dto.ElectiveDto">
+        SELECT
+            t_elective.score,
+            t_elective.course_id AS courseId,
+            t_elective.stu_id AS stuId,
+            t_elective.id,
+            t_student.stu_name AS stuName,
+            t_course.course_name AS courseName
+        FROM
+        t_elective
+        INNER JOIN t_student ON t_elective.stu_id = t_student.id
+        INNER JOIN t_course ON t_elective.course_id = t_course.id
+        WHERE
+        t_student.id = #{stuId}
+    </select>
+
+
+
 </mapper>

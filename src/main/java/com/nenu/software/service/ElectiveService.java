@@ -1,6 +1,7 @@
 package com.nenu.software.service;
 
 
+import com.nenu.software.common.dto.ElectiveDto;
 import com.nenu.software.common.entity.Course;
 import com.nenu.software.common.entity.Elective;
 import com.nenu.software.common.entity.Student;
@@ -64,4 +65,13 @@ public interface ElectiveService {
      * @return 学生未选课程
      */
     public List<Course> listUnelectedCourses(int stuId) throws Exception;
+
+
+    /**
+     * 查询自己的选课和成绩
+     * @param stuId
+     * @return
+     * @throws Exception
+     */
+    public List<ElectiveDto> queryCourseAndScore(int stuId) throws Exception;
 }

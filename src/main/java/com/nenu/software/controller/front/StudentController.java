@@ -6,6 +6,7 @@ import com.nenu.software.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -37,7 +38,7 @@ public class StudentController {
         }
         if(temp != null) {
             session.setAttribute("student", temp);
-            return Pages.FRONTINDEX;
+            return Pages.ELECTIVECOURSE;
         }
         return "redirect:/login.jsp";
     }
@@ -56,13 +57,69 @@ public class StudentController {
 
 
     /**
-     * 进入选课页面
+     * 前往个人中心
      * @return
      */
-    @RequestMapping("/toElectiveCourse")
-    public String toElectiveCourse() {
-        return Pages.ELECTIVECOURSE;
+    @RequestMapping("/toPersion")
+    public String toPersion() {
+        return Pages.TOPERSION;
     }
+
+
+    /**
+     * 获得个人信息
+     * @param session
+     * @return
+     */
+    @RequestMapping("/getPersion")
+    @ResponseBody
+    public Student getPersion(HttpSession session) {
+        Student student = (Student)session.getAttribute("student");
+        return student;
+    }
+
+
+
+    /**
+     * 前往修改资料页面
+     * @return
+     */
+    @RequestMapping("/toUpdateMyself")
+    public String toUpdateMyself() {
+        return Pages.UPDATEMYSELF;
+    }
+
+
+    /**
+     * 修改自己的密码和生日
+     * @param student
+     * @param session
+     * @return
+     */
+    @RequestMapping("/updateMyself")
+    public String updateMyself(Student student, HttpSession session) {
+        int stuId = (int)((Student)session.getAttribute("student")).getId();
+        student.setId(stuId);
+        try {
+            studentService.updateStudent(student);
+            return Pages.TOPERSION;
+        } catch (Exception e) {
+            return Pages.ERROR;
+        }
+    }
+
+
+//    /**
+//     * 进入选课页面
+//     * @return
+//     */
+//    @RequestMapping("/toElectiveCourse")
+//    public String toElectiveCourse() {
+//        return Pages.ELECTIVECOURSE;
+//    }
+
+
+
 
 
 

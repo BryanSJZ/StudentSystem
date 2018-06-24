@@ -3,6 +3,7 @@ package com.nenu.software.common.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import java.util.Date;
 
 @Entity
 public class Student {
@@ -11,7 +12,8 @@ public class Student {
   private String stuName;
   private long stuNum;
   private String password;
-  private String birthday;
+  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  private Date birthday;
   private long classId;
 
 
@@ -51,11 +53,11 @@ public class Student {
   }
 
 
-  public String getBirthday() {
+  public Date getBirthday() {
     return birthday;
   }
 
-  public void setBirthday(String birthday) {
+  public void setBirthday(Date birthday) {
     this.birthday = birthday;
   }
 

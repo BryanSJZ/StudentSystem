@@ -7,12 +7,16 @@ package com.nenu.software.common.util;
 public class Pages {
 
 
-    public final static String FRONTINDEX = "";
 
     public final static String ERROR = "";
 
     public final static String ELECTIVECOURSE = "";
 
+    public final static String COURSESCORE = "";
+
+    public final static String UPDATEMYSELF = "";
+
+    public final static String TOPERSION = "";
 
 
 }
