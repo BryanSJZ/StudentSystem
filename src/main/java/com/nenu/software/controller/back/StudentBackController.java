@@ -1,5 +1,7 @@
 package com.nenu.software.controller.back;
 
+import com.nenu.software.common.dto.StuScore;
+import com.nenu.software.common.entity.Class;
 import com.nenu.software.common.entity.Student;
 import com.nenu.software.service.ClassService;
 import com.nenu.software.service.StudentService;
@@ -32,29 +34,63 @@ public class StudentBackController {
     @Autowired
     private ClassService classService;
 
+    @RequestMapping(value = "toStudentList")
+    public String toStudentList() {
+        return "grade/backpages/student-list";
+    }
+
+    /**
+     * 去往班级学生列表页
+     */
+    @RequestMapping(value = "toClassStudentList")
+    public String toClassStudentList() {
+        return "grade/backpages/class-student-list";
+    }
+
     /**
      * 根据条件获取JSON学生列表
      * @param stuName 学生姓名
      * @param stuNum 学生学号
-     * @param classId 班级Id
      * @return 学生列表json
      */
-    @RequestMapping(value = "listStudentByConditions", method = RequestMethod.POST)
+    @RequestMapping(value = "listStudentByConditions", method = RequestMethod.GET)
     @ResponseBody
     public JSONObject listStudentByConditions(@RequestParam(value = "stuName", required = false, defaultValue = "") String stuName,
-                                              @RequestParam(value = "stuNum", required = false, defaultValue = "-1") Integer stuNum,
-                                              @RequestParam(value = "classId", required = false, defaultValue = "-1") Integer classId) {
+                                                  @RequestParam(value = "stuNum", required = false, defaultValue = "-1") Integer stuNum,
+                                                  @RequestParam(value = "className", required = false, defaultValue = "") String className) {
         JSONObject jsonObject = new JSONObject();
         List<Student> studentList = new ArrayList<>();
+
+        Integer classId = null;
+        List<Class> classList = null;
         try {
-            studentList = studentService.listStudentByConditions(stuName, stuNum, classId);
+            classList  = classService.listClassByConditions("", className);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        if(classList != null && classList.size() > 0) {
+            for(Class clazz : classList) {
+                List<Student> students = new ArrayList<>();
+                classId =  (int)clazz.getId();
+                try {
+                    students = studentService.listStudentByConditions(stuName, stuNum, classId);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                studentList.addAll(students);
+
+            }
+        }
+
+
         JSONArray jsonArray = new JSONArray();
         if(studentList != null) {
             for(Student student : studentList) {
                 JSONObject json = new JSONObject();
+                if(student.getId() > 0) {
+                    json.put("id", student.getId());
+                }
                 if(student.getStuName() != null && !student.getStuName().equals("")) {
                     json.put("stuName", student.getStuName());
                 } else {
@@ -72,7 +108,8 @@ public class StudentBackController {
                 }
                 if(student.getClassId() > 0) {
                     try {
-                        json.put("class", classService.selectClassById((int) student.getClassId()));
+//                        json.put("class", classService.selectClassById((int) student.getClassId()));
+                        json.put("className",classService.selectClassById((int) student.getClassId()).getClassName());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -101,29 +138,34 @@ public class StudentBackController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(student.getStuName() != null && !student.getStuName().equals("")) {
-            jsonObject.put("stuName", student.getStuName());
-        } else {
-            jsonObject.put("stuName", "无");
-        }
-        if(student.getStuNum() > 0) {
-            jsonObject.put("stuNum", student.getStuNum());
-        } else {
-            jsonObject.put("stuNum", "无");
-        }
-        if (student.getBirthday() != null && !student.getBirthday().equals("")) {
-            jsonObject.put("birthday", student.getBirthday());
-        } else {
-            jsonObject.put("birthday", "无");
-        }
-        if(student.getClassId() > 0) {
-            try {
-                jsonObject.put("class", classService.selectClassById((int) student.getClassId()));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if(student != null) {
+            if (student.getId() > 0) {
+                jsonObject.put("id", student.getId());
             }
-        } else {
-            jsonObject.put("class", "无");
+            if (student.getStuName() != null && !student.getStuName().equals("")) {
+                jsonObject.put("stuName", student.getStuName());
+            } else {
+                jsonObject.put("stuName", "无");
+            }
+            if (student.getStuNum() > 0) {
+                jsonObject.put("stuNum", student.getStuNum());
+            } else {
+                jsonObject.put("stuNum", "无");
+            }
+            if (student.getBirthday() != null && !student.getBirthday().equals("")) {
+                jsonObject.put("birthday", student.getBirthday());
+            } else {
+                jsonObject.put("birthday", "无");
+            }
+            if (student.getClassId() > 0) {
+                try {
+                    jsonObject.put("class", classService.selectClassById((int) student.getClassId()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                jsonObject.put("class", "无");
+            }
         }
 
         return jsonObject;
@@ -131,11 +173,6 @@ public class StudentBackController {
 
     /**
      * 新增学生
-     * @param stuName
-     * @param stuNum
-     * @param password
-     * @param birthday
-     * @param classId
      * @return 1 - 增加成功
      *         0 - 增添失败
      */
@@ -145,14 +182,33 @@ public class StudentBackController {
                                  @RequestParam(value = "stuNum", required = false, defaultValue = "-1") Integer stuNum,
                                  @RequestParam(value = "password", required = false, defaultValue = "") String password,
                                  @RequestParam(value = "birthday", required = false) String birthday,
-                                 @RequestParam(value = "classId", required = false, defaultValue = "-1") Integer classId) {
+                                 @RequestParam(value = "className", required = false, defaultValue = "") String className) {
+
+        //根据className获取classId
+        List<Student> studentList = new ArrayList<>();
+
+        Integer classId = null;
+        List<Class> classList = null;
+        try {
+            classList  = classService.listClassByConditions("", className);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if(classList != null && classList.size() > 0) {
+            Class clazz = classList.get(0);
+            classId =  (int)clazz.getId();
+        }
+
 
         JSONObject jsonObject = new JSONObject();
 //        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Student student = new Student();
         student.setStuName(stuName);
         student.setStuNum(stuNum);
-        student.setPassword(password);
+        if(password != null && password != "") {
+            student.setPassword(password);
+        }
 //        Date birthDate = null;
 //        try {
 //            birthDate = DateFormat.getDateInstance().parse(birthday);
@@ -181,9 +237,9 @@ public class StudentBackController {
      * @return 1 - 删除成功
      *         0 - 删除失败
      */
-    @RequestMapping(value = "deleteStudentById/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "deleteStudentById", method = RequestMethod.GET)
     @ResponseBody
-    public JSONObject deleteStudentById(@PathVariable(value = "id") Integer id) {
+    public JSONObject deleteStudentById(@RequestParam(value = "id") Integer id) {
         JSONObject jsonObject = new JSONObject();
         try {
             studentService.deleteStudentById(id);
@@ -203,26 +259,51 @@ public class StudentBackController {
      * @param stuNum 学号
      * @param password 密码
      * @param birthday 生日
-     * @param classId 班级id
      * @return 1 - 更新成功
      *         2 - 更新失败
      */
-    @RequestMapping(value = "updateStudentById/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "updateStudentById", method = RequestMethod.POST)
     @ResponseBody
-    public JSONObject updateStudentById(@PathVariable("id") Integer id,
+    public JSONObject updateStudentById(@RequestParam(value = "id") Integer id,
                                         @RequestParam(value = "stuName", required = false, defaultValue = "") String stuName,
                                         @RequestParam(value = "stuNum", required = false, defaultValue = "-1") Integer stuNum,
                                         @RequestParam(value = "password", required = false, defaultValue = "") String password,
                                         @RequestParam(value = "birthday", required = false) String birthday,
-                                        @RequestParam(value = "classId", required = false, defaultValue = "-1") Integer classId) {
+                                        @RequestParam(value = "className", required = false, defaultValue = "") String className) {
         JSONObject jsonObject = new JSONObject();
+
+        //根据className获取classId
+        Integer classId = null;
+        List<Class> classList = null;
+        if(className != null && className != "") {
+            try {
+                classList = classService.listClassByConditions("", className);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            if (classList != null && classList.size() > 0) {
+                Class clazz = classList.get(0);
+                classId = (int) clazz.getId();
+            }
+        }
+
+
         Student student = new Student();
         student.setId(id);
-        student.setStuName(stuName);
-        student.setStuNum(stuNum);
-        student.setPassword(password);
-        student.setBirthday(birthday);
-        student.setClassId(classId);
+        if(stuName != null && stuName != "") {
+            student.setStuName(stuName);
+        }
+        if(stuNum != null && stuNum > 0) {
+            student.setStuNum(stuNum);
+        }
+        if(password != null && password != "") {
+            student.setPassword(password);
+        }
+//        student.setBirthday(birthday);
+        if(classId != null) {
+            student.setClassId(classId);
+        }
 
         try {
             studentService.updateStudent(student);
@@ -230,6 +311,19 @@ public class StudentBackController {
         } catch (Exception e) {
             e.printStackTrace();
             jsonObject.put("code", 0);
+        }
+        return jsonObject;
+    }
+
+    @RequestMapping("/query")
+    @ResponseBody
+    public JSONObject query() {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            List<StuScore> studentList = studentService.query();
+            jsonObject.put("list",studentList);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return jsonObject;
     }

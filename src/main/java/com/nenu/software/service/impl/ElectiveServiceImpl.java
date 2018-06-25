@@ -1,6 +1,7 @@
 package com.nenu.software.service.impl;
 
 import com.nenu.software.common.dto.ElectiveDto;
+import com.nenu.software.common.dto.StuScore;
 import com.nenu.software.common.entity.Course;
 import com.nenu.software.common.entity.Elective;
 import com.nenu.software.common.entity.Student;
@@ -42,7 +43,7 @@ public class ElectiveServiceImpl implements ElectiveService {
         return electiveMapper.listElectiveByConditions(stuId, courseId);
     }
 
-    public List<Student> listElectiveStudents(int courseId) throws Exception {
+    public List<StuScore> listElectiveStudents(int courseId) throws Exception {
         return electiveMapper.listElectiveStudents(courseId);
     }
 

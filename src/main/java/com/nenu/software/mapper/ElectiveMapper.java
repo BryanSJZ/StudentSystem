@@ -1,6 +1,7 @@
 package com.nenu.software.mapper;
 
 import com.nenu.software.common.dto.ElectiveDto;
+import com.nenu.software.common.dto.StuScore;
 import com.nenu.software.common.entity.Course;
 import com.nenu.software.common.entity.Elective;
 import com.nenu.software.common.entity.Student;
@@ -49,7 +50,7 @@ public interface ElectiveMapper {
      * @return 选择该课程的学生
      * @throws Exception 异常
      */
-    public List<Student> listElectiveStudents(@Param("courseId") int courseId) throws Exception;
+    public List<StuScore> listElectiveStudents(@Param("courseId") int courseId) throws Exception;
 
     /**
      * 查询某学生已选课程

@@ -30,6 +30,12 @@ public class ElectiveController {
     @Autowired
     ElectiveService electiveService;
 
+
+    @RequestMapping(value = "/toElective")
+    public String toElective() {
+        return Pages.ELECTIVECOURSE;
+    }
+
     /**
      * 添加选课
      * @param
@@ -37,17 +43,16 @@ public class ElectiveController {
      * @return 是否成功添加 1正常0异常
      */
     @RequestMapping(value = "/elect",method = RequestMethod.GET)
-    public String electCourse(HttpSession session, @RequestParam("courseId")int courseId) {
+    @ResponseBody
+    public void electCourse(HttpSession session, @RequestParam("courseId")int courseId) {
         long stuId = ((Student)session.getAttribute("student")).getId();
         Elective elective = new Elective();
         elective.setCourseId(courseId);
         elective.setStuId(stuId);
         try {
             electiveService.newElective(elective);
-            return Pages.ELECTIVECOURSE;
         } catch (Exception e) {
             e.printStackTrace();
-            return Pages.ERROR;
         }
     }
 
@@ -60,16 +65,15 @@ public class ElectiveController {
      */
     @RequestMapping(value = "/unelected/list",method = RequestMethod.GET)
     @ResponseBody
-    public JSONObject listUnelectedCourses(HttpSession session) {
+    public List<Course> listUnelectedCourses(HttpSession session) {
         int stuId = (int)((Student)session.getAttribute("student")).getId();
-        JSONObject jsonObject = new JSONObject();
         try {
-            List<Course> courseList = electiveService.listUnelectedCourses(stuId);
-            jsonObject.put("courseList",courseList);
+            List<Course> a = electiveService.listUnelectedCourses(stuId);
+            return a;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return jsonObject;
     }
 
 

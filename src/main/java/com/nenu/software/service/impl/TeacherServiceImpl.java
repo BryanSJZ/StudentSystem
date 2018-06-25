@@ -47,4 +47,8 @@ public class TeacherServiceImpl implements TeacherService {
     public List<Teacher> listTeacherByConditions(String teaName, String teaNum) throws Exception {
         return teacherMapper.listTeacherByConditions(teaName, teaNum);
     }
+
+    public Teacher checkTeaLogin(Teacher teacher) throws Exception {
+        return teacherMapper.checkTeaLogin(teacher);
+    }
 }

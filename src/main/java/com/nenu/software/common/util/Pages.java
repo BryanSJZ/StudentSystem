@@ -10,13 +10,13 @@ public class Pages {
 
     public final static String ERROR = "";
 
-    public final static String ELECTIVECOURSE = "";
+    public final static String ELECTIVECOURSE = "grade/frontpages/course-list";
 
-    public final static String COURSESCORE = "";
+    public final static String COURSESCORE = "grade/frontpages/grade-list";
 
-    public final static String UPDATEMYSELF = "";
+    public final static String BACKINDEX = "grade/backpages/index";
 
-    public final static String TOPERSION = "";
+    public final static String TOPERSION = "grade/frontpages/change-password";
 
 
 }

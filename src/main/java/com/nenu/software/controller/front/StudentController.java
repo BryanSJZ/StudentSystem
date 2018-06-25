@@ -3,6 +3,7 @@ package com.nenu.software.controller.front;
 import com.nenu.software.common.entity.Student;
 import com.nenu.software.common.util.Pages;
 import com.nenu.software.service.StudentService;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,17 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @RequestMapping(value = "/getStuName")
+    @ResponseBody
+    public JSONObject getStuName(HttpSession session) {
+
+        Student student = (Student)session.getAttribute("student");
+        String stuName = student.getStuName();
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("stuName", stuName);
+        return jsonObject;
+    }
 
 
     /**
@@ -40,7 +52,7 @@ public class StudentController {
             session.setAttribute("student", temp);
             return Pages.ELECTIVECOURSE;
         }
-        return "redirect:/login.jsp";
+        return "redirect:/login.html";
     }
 
 
@@ -52,7 +64,7 @@ public class StudentController {
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("student");
-        return "redirect:/login.jsp";
+        return "redirect:/login.html";
     }
 
 
@@ -60,8 +72,8 @@ public class StudentController {
      * 前往个人中心
      * @return
      */
-    @RequestMapping("/toPersion")
-    public String toPersion() {
+    @RequestMapping("/toPerson")
+    public String toPerson() {
         return Pages.TOPERSION;
     }
 
@@ -80,14 +92,14 @@ public class StudentController {
 
 
 
-    /**
-     * 前往修改资料页面
-     * @return
-     */
-    @RequestMapping("/toUpdateMyself")
-    public String toUpdateMyself() {
-        return Pages.UPDATEMYSELF;
-    }
+//    /**
+//     * 前往修改资料页面
+//     * @return
+//     */
+//    @RequestMapping("/toUpdateMyself")
+//    public String toUpdateMyself() {
+//        return Pages.UPDATEMYSELF;
+//    }
 
 
     /**
@@ -97,7 +109,10 @@ public class StudentController {
      * @return
      */
     @RequestMapping("/updateMyself")
-    public String updateMyself(Student student, HttpSession session) {
+    public String updateMyself(String password, String birthday, HttpSession session) {
+        Student student = new Student();
+        student.setPassword(password);
+        student.setBirthday(birthday);
         int stuId = (int)((Student)session.getAttribute("student")).getId();
         student.setId(stuId);
         try {

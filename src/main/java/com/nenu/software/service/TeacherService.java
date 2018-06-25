@@ -50,4 +50,9 @@ public interface TeacherService {
      * @param teNum 学号
      */
     public List<Teacher> listTeacherByConditions(String teaName, String teaNum) throws Exception;
+
+
+
+    public Teacher checkTeaLogin(Teacher teacher) throws Exception;
+
 }

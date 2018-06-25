@@ -2,6 +2,7 @@ package com.nenu.software.service;
 
 
 import com.nenu.software.common.dto.ElectiveDto;
+import com.nenu.software.common.dto.StuScore;
 import com.nenu.software.common.entity.Course;
 import com.nenu.software.common.entity.Elective;
 import com.nenu.software.common.entity.Student;
@@ -50,7 +51,7 @@ public interface ElectiveService {
      * @return 选择该课程的学生
      * @throws Exception 异常
      */
-    public List<Student> listElectiveStudents(int courseId) throws Exception;
+    public List<StuScore> listElectiveStudents(int courseId) throws Exception;
 
     /**
      * 查询某学生已选课程

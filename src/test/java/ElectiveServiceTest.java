@@ -1,5 +1,6 @@
 import com.nenu.software.common.dto.ElectiveDto;
 import com.nenu.software.common.entity.Class;
+import com.nenu.software.common.entity.Course;
 import com.nenu.software.common.entity.Elective;
 import com.nenu.software.service.ClassService;
 import com.nenu.software.service.ElectiveService;
@@ -62,4 +63,15 @@ public class ElectiveServiceTest {
             System.out.println(list.get(i).getCourseName());
         }
     }
+
+
+
+
+    @Test
+    public void testlistUnelectedCourses() throws Exception {
+        List<Course> list = electiveService.listUnelectedCourses(5);
+        System.out.println(list.get(0).getCourseName());
+    }
+
+
 }

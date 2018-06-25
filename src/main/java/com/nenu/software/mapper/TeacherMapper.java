@@ -52,4 +52,8 @@ public interface TeacherMapper {
     public List<Teacher> listTeacherByConditions(@Param("teaName") String teaName,
                                                  @Param("teaNum") String teaNum) throws Exception;
 
+
+    public Teacher checkTeaLogin(Teacher teacher) throws Exception;
+
+
 }

@@ -1,5 +1,6 @@
 package com.nenu.software.service.impl;
 
+import com.nenu.software.common.dto.StuScore;
 import com.nenu.software.common.entity.Student;
 import com.nenu.software.mapper.StudentMapper;
 import com.nenu.software.service.StudentService;
@@ -51,5 +52,10 @@ public class StudentServiceImpl implements StudentService {
 
     public Student checkLogin(long stuNum, String password) throws Exception {
         return studentMapper.checkLogin(stuNum, password);
+    }
+
+    @Override
+    public List<StuScore> query() throws Exception {
+        return studentMapper.query();
     }
 }

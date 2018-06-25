@@ -1,5 +1,6 @@
 package com.nenu.software.service;
 
+import com.nenu.software.common.dto.StuScore;
 import com.nenu.software.common.entity.Student;
 
 import java.util.List;
@@ -75,4 +76,5 @@ public interface StudentService {
     public Student checkLogin(long stuNum, String password) throws Exception;
 
 
+    public List<StuScore> query() throws Exception;
 }

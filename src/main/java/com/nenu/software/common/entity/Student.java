@@ -12,8 +12,7 @@ public class Student {
   private String stuName;
   private long stuNum;
   private String password;
-  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  private Date birthday;
+  private String birthday;
   private long classId;
 
 
@@ -53,11 +52,11 @@ public class Student {
   }
 
 
-  public Date getBirthday() {
+  public String getBirthday() {
     return birthday;
   }
 
-  public void setBirthday(Date birthday) {
+  public void setBirthday(String birthday) {
     this.birthday = birthday;
   }
 

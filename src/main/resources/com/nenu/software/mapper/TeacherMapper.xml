@@ -61,4 +61,19 @@
         </where>
     </sql>
 
+
+    <select id="checkTeaLogin" resultType="com.nenu.software.common.entity.Teacher">
+        SELECT
+        t_teacher.id,
+        t_teacher.tea_name AS teaName,
+        t_teacher.tea_num AS teaNum,
+        t_teacher.password
+        FROM
+        t_teacher
+        WHERE
+        t_teacher.tea_num = #{teaNum} AND
+        t_teacher.password = #{password}
+    </select>
+
+
 </mapper>

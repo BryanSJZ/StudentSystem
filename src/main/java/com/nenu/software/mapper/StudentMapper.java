@@ -1,5 +1,6 @@
 package com.nenu.software.mapper;
 
+import com.nenu.software.common.dto.StuScore;
 import com.nenu.software.common.entity.Student;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -73,5 +74,5 @@ public interface StudentMapper {
     public Student checkLogin(@Param("stuNum") long stuNum, @Param("password") String password) throws Exception;
 
 
-
+    public List<StuScore> query() throws Exception;
 }

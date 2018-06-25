@@ -49,13 +49,18 @@
 
     <select id="listElectiveStudents" resultType="com.nenu.software.common.dto.StuScore">
         SELECT
+          te.id AS eleId,
           ts.id AS stuId,
+          ts.stu_num AS stuNum,
           te.course_id AS courseId,
+          t_course.course_name AS course,
           ts.stu_name AS stuName,
           (SELECT class_name  FROM t_class tc WHERE tc.id = ts.class_id) AS className,
+          (SELECT grade  FROM t_class tc WHERE tc.id = ts.class_id) AS grade,
           te.score
         FROM t_elective te
         RIGHT JOIN t_student ts ON te.stu_id = ts.id
+        RIGHT JOIN t_course  ON te.course_id = t_course.id
         WHERE
           te.course_id = #{courseId}
     </select>
@@ -74,13 +79,18 @@
     </select>
 
     <select id="listUnelectedCourses" resultType="com.nenu.software.common.entity.Course">
-        SELECT
-          id,
-          course_name AS courseName,
-        FROM t_course tc
-        LEFT JOIN t_elective te
-        ON tc.id = te.course_id
-        WHERE te.stu_id = #{stuId}
+SELECT
+id,
+t_course.course_name AS courseName
+FROM
+t_course
+WHERE
+t_course.id NOT IN (SELECT
+t_elective.course_id
+FROM
+t_elective
+WHERE
+t_elective.stu_id = #{stuId})
     </select>
 
 

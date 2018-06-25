@@ -32,7 +32,7 @@ public class CourseController {
      * 查询所有课程
      * @return 课程列表JSON对象
      */
-    @RequestMapping(value = "/all",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     @ResponseBody
     public JSONObject queryAllCourse() {
         JSONObject jsonObject = new JSONObject();

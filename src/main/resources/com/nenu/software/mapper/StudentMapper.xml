@@ -20,7 +20,7 @@
     <update id="updateStudent" parameterType="com.nenu.software.common.entity.Student">
         UPDATE t_student
         SET
-          password = #{student.password}, birthday = #{student.birthday}
+          password = #{student.password}, birthday = #{student.birthday}, stu_name = #{student.stuName}, class_id = #{student.classId}
         WHERE id = #{student.id}
     </update>
 
@@ -85,5 +85,19 @@
         WHERE stu_num = #{stuNum} AND password = #{password}
     </select>
 
+    <select id="query" resultType="com.nenu.software.common.dto.StuScore">
+        SELECT
+          ts.id AS stuId,
+          ts.stu_name AS stuNum,
+          tc.id AS courseId,
+          tc.course_name AS course,
+          ts.stu_name AS stuName,
+          (SELECT grade FROM t_class WHERE ts.class_id = t_class.id) AS grade,
+          (SELECT class_name FROM t_class WHERE ts.class_id = t_class.id) AS className,
+          (SELECT score FROM t_elective WHERE t_elective.stu_id = ts.id AND t_elective.course_id = tc.id) AS score,
+        FROM t_student ts
+        LEFT JOIN t_elective ON ts.id = t_elective.stu_id
+        LEFT JOIN t_course tc ON t_elective.course_id = tc.id
+    </select>
 
 </mapper>
