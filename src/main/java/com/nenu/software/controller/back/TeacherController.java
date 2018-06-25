@@ -42,6 +42,17 @@ public class TeacherController {
         return "redirect:/loginBack.html";
     }
 
+    /**
+     * 退出登录
+     * @return
+     */
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("teacher");
+        return "redirect:/loginBack.html";
+    }
+
+
     @RequestMapping(value = "toChangePassword")
     public String toChangePassword() {
         return "grade/backpages/change-password";

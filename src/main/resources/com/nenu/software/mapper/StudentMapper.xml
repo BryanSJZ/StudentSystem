@@ -20,7 +20,14 @@
     <update id="updateStudent" parameterType="com.nenu.software.common.entity.Student">
         UPDATE t_student
         SET
-          password = #{student.password}, birthday = #{student.birthday}, stu_name = #{student.stuName}, class_id = #{student.classId}
+          password = #{student.password},
+          birthday = #{student.birthday}
+          <if test="student.stuName != null and student.stuName != ''">
+            , stu_name = #{student.stuName}
+          </if>
+          <if test="student.classId != null and student.classId > 0">
+            , class_id = #{student.classId}
+          </if>
         WHERE id = #{student.id}
     </update>
 

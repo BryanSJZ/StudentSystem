@@ -50,7 +50,7 @@ $(function () {
             url: "/StuSystem/backClass/new", //删除课程的地址
             data: {
                 grade:grade,
-                class:name
+                className:name
             }
         });
         location.reload();

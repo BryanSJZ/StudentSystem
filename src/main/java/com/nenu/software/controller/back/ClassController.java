@@ -53,7 +53,7 @@ public class ClassController {
     }
 
     @RequestMapping(value = "/new",method = RequestMethod.POST)
-    public String newCourse(@RequestParam("grade") String grade,@RequestParam("class")String name) {
+    public String newCourse(@RequestParam("grade") String grade,@RequestParam("className")String name) {
         Class aClass = new Class();
         aClass.setGrade(grade);
         aClass.setClassName(name);
