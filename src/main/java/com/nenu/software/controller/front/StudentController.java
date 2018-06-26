@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 /**
+ * 学生前台控制器
  * @author shanjz
  * @since 2018/6/20 10:46
+ * @version 1.0.0
  */
 @Controller
 @RequestMapping(value = "/student")

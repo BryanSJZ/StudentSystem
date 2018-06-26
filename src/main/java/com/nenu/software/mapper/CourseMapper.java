@@ -10,6 +10,7 @@ import java.util.List;
  * 课程Mapper
  * @author shanjz
  * @since 2018/6/20 20:43
+ * @version 1.0.0
  */
 @Repository
 public interface CourseMapper {

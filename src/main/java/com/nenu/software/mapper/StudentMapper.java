@@ -11,6 +11,7 @@ import java.util.List;
  * 学生Mapper
  * @author shanjz
  * @since 2018/6/20 10:23
+ * @version 1.0.0
  */
 @Repository
 public interface StudentMapper {

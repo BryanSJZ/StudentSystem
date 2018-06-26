@@ -9,6 +9,7 @@ import java.util.List;
  * 学生Service
  * @author shanjz
  * @since 2018/6/20 10:25
+ * @version 1.0.0
  */
 public interface StudentService {
     /**

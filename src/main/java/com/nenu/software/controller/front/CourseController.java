@@ -18,6 +18,7 @@ import java.util.List;
  * code1正常 0异常
  * @author shanjz
  * @since 2018/6/21 19:00
+ * @version 1.0.0
  */
 @Controller
 @RequestMapping("/course")

@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * 班级控制器
+ * @author shanjz
+ * @since 2017/9/18 20:17
+ * @version 1.0.0
+ */
 @Controller
 @RequestMapping("/backClass")
 public class ClassController {

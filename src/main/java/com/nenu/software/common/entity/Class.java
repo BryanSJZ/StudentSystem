@@ -6,6 +6,7 @@ import javax.persistence.Entity;
  * 班级实体类
  * @author shanjz
  * @since 2018/6/22 15:12
+ * @version 1.0.0
  */
 @Entity
 public class Class {

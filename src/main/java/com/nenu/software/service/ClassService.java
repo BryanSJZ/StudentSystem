@@ -8,6 +8,7 @@ import java.util.List;
  * 班级Service
  * @author shanjz
  * @since 2018/6/21 9:02
+ * @version 1.0.0
  */
 public interface ClassService {
 

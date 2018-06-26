@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 /**
+ * 教师后台控制器
  * @author shanjz
  * @since 2018/6/23 12:34
+ * @version 1.0.0
  */
 @Controller
 @RequestMapping("/backTeacher")

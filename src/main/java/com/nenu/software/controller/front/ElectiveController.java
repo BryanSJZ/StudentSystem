@@ -19,8 +19,10 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
+ * 选课前台控制器
  * @author shanjz
  * @since 2018/6/22 9:35
+ * @version 1.0.0
  */
 @Controller
 @RequestMapping("/elective")
@@ -39,7 +41,6 @@ public class ElectiveController {
      * 添加选课
      * @param session session对象
      * @param courseId 课程ID
-     * @return 是否成功添加 1正常0异常
      */
     @RequestMapping(value = "/elect",method = RequestMethod.GET)
     @ResponseBody

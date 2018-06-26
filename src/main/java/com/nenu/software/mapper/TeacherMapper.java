@@ -10,6 +10,7 @@ import java.util.List;
  * 教师mapper
  * @author shanjz
  * @since 2018/6/20 19:56
+ * @version 1.0.0
  */
 @Repository
 public interface TeacherMapper {

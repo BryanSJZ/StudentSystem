@@ -10,6 +10,7 @@ import java.util.List;
  * 班级Mapper
  * @author shanjz
  * @since 2018/6/21 8:50
+ * @version 1.0.0
  */
 @Repository
 public interface ClassMapper {

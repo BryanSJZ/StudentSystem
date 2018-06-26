@@ -13,6 +13,7 @@ import java.util.List;
  * 选修信息Service
  * @author shanjz
  * @since 2018/6/21 9:02
+ * @version 1.0.0
  */
 public interface ElectiveService {
 

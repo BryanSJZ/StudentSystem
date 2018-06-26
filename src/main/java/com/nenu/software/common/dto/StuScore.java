@@ -4,6 +4,7 @@ package com.nenu.software.common.dto;
  * 学生及分数
  * @author shanjz
  * @since 2018/6/22 9:55
+ * @version 1.0.0
  */
 public class StuScore {
 

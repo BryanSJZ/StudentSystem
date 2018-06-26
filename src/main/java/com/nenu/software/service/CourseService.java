@@ -8,6 +8,7 @@ import java.util.List;
  * 课程service
  * @author shanjz
  * @since 2018/6/20 20:56
+ * @version 1.0.0
  */
 public interface CourseService {
 

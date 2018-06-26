@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
  * 登陆拦截器
  * @author shanjz
  * @since 2017/9/18 19:17
+ * @version 1.0.0
  */
 public class LoginInterceptor implements HandlerInterceptor {
 

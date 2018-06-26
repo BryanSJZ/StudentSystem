@@ -4,6 +4,7 @@ package com.nenu.software.common.dto;
  * 选课DTO
  * @author shanjz
  * @since 2018/6/23 13:12
+ * @version 1.0.0
  */
 public class ElectiveDto {
 

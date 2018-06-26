@@ -20,9 +20,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author: software-liuwang
- * @time: 2018/6/22 9:22
- * @description: 学生Controller
+ * @author software-liuwang
+ * @since 2018/6/22 9:22
+ * @version 1.0.0
+ * 学生Controller
  */
 @Controller
 @RequestMapping(value = "back/student")

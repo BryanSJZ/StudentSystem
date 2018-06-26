@@ -13,6 +13,7 @@ import java.util.List;
  * 选修课程Mapper
  * @author shanjz
  * @since 2018/6/21 9:16
+ * @version 1.0.0
  */
 public interface ElectiveMapper {
 

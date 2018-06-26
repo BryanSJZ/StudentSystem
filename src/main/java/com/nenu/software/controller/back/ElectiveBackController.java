@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
+ * 选课后台控制器
  * @author shanjz
  * @since 2018/6/22 9:35
+ * @version 1.0.0
  */
 @Controller
 @RequestMapping("/backElective")
