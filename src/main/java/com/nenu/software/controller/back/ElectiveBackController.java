@@ -71,6 +71,10 @@ public class ElectiveBackController {
         return jsonObject;
     }
 
+    /**
+     * 跳转至课程管理列表
+     * @return 课程管理列表
+     */
     @RequestMapping(value = "/manage",method = RequestMethod.GET)
     public String toList() {
         return "grade/backpages/course-grade-list";

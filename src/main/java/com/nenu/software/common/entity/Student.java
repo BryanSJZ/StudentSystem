@@ -5,14 +5,30 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
 import java.util.Date;
 
+/**
+ * 学生实体类
+ * @author shanjz
+ * @since 2018/6/22 15:18
+ */
 @Entity
 public class Student {
 
+  //唯一标识符
   private long id;
+
+  //学生姓名
   private String stuName;
+
+  //学号
   private long stuNum;
+
+  //密码
   private String password;
+
+  //生日
   private String birthday;
+
+  //班级ID
   private long classId;
 
 

@@ -2,11 +2,21 @@ package com.nenu.software.common.entity;
 
 import javax.persistence.Entity;
 
+/**
+ * 班级实体类
+ * @author shanjz
+ * @since 2018/6/22 15:12
+ */
 @Entity
 public class Class {
 
+  //唯一标识
   private long id;
+
+  //年级
   private String grade;
+
+  //班级
   private String className;
 
 

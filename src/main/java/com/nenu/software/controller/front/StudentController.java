@@ -1,7 +1,6 @@
 package com.nenu.software.controller.front;
 
 import com.nenu.software.common.entity.Student;
-import com.nenu.software.common.util.Pages;
 import com.nenu.software.service.StudentService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +21,11 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    /**
+     * 获取学生姓名
+     * @param session session对象
+     * @return 课程对象JSON
+     */
     @RequestMapping(value = "/getStuName")
     @ResponseBody
     public JSONObject getStuName(HttpSession session) {
@@ -36,9 +40,9 @@ public class StudentController {
 
     /**
      * 学生登陆
-     * @param student
-     * @param session
-     * @return
+     * @param student 学生对象
+     * @param session session对象
+     * @return 选课页或重新登陆页
      */
     @RequestMapping("/login")
     public String login(Student student, HttpSession session) {
@@ -58,8 +62,8 @@ public class StudentController {
 
     /**
      * 退出登录
-     * @param session
-     * @return
+     * @param session session对象
+     * @return 登录页
      */
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
@@ -70,7 +74,7 @@ public class StudentController {
 
     /**
      * 前往个人中心
-     * @return
+     * @return 个人中心
      */
     @RequestMapping("/toPerson")
     public String toPerson() {
@@ -80,10 +84,10 @@ public class StudentController {
 
     /**
      * 获得个人信息
-     * @param session
-     * @return
+     * @param session session对象
+     * @return 学生对象
      */
-    @RequestMapping("/getPersion")
+    @RequestMapping("/getPerson")
     @ResponseBody
     public Student getPersion(HttpSession session) {
         Student student = (Student)session.getAttribute("student");
@@ -104,8 +108,10 @@ public class StudentController {
 
     /**
      * 修改自己的密码和生日
-     * @param session
-     * @return
+     * @param password 密码
+     * @param birthday 生日
+     * @param session session对象
+     * @return 个人页面
      */
     @RequestMapping("/updateMyself")
     public String updateMyself(String password, String birthday, HttpSession session) {

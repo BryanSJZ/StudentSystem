@@ -16,36 +16,46 @@ public interface CourseMapper {
 
     /**
      * 新增课程
+     * @param course 课程对象
+     * @throws Exception 异常
      */
     public void newCourse(@Param("course") Course course) throws Exception;
 
     /**
-     * 根据id删除课程
+     * 通过ID删除课程
+     * @param id ID
+     * @throws Exception 异常
      */
     public void deleteCourseById(@Param("id") Integer id) throws Exception;
 
     /**
-     * 修改课程信息
+     * 更新课程信息
+     * @param course 课程对象
+     * @throws Exception 异常
      */
     public void updateCourse(@Param("course") Course course) throws Exception;
 
     /**
-     * 根据id选择课程
+     * 通过ID查找课程
+     * @param id ID
+     * @return 课程对象
+     * @throws Exception 异常
      */
     public Course selectCourseById(@Param("id") Integer id) throws Exception;
 
     /**
-     * 根据课程名筛选课程列表
+     * 通过课程名称查找
+     * @param courseName 名称
+     * @return 课程列表
+     * @throws Exception 异常
      */
     public List<Course> listCourseByName(@Param("courseName") String courseName) throws Exception;
 
 
     /**
      * 查询所有的课程
-     * @return
-     * @throws Exception
+     * @return 课程列表
+     * @throws Exception 异常
      */
     public List<Course> queryAllCourse() throws Exception;
-
-
 }

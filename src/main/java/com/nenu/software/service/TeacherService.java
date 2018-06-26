@@ -25,7 +25,7 @@ public interface TeacherService {
     /**
      * 根据学号删除教师
      * @param teaNum 教师编号
-     * @throws Exception
+     * @throws Exception 异常
      */
     public void deleteTeacherByTeaNum(String teaNum) throws Exception;
 
@@ -47,10 +47,9 @@ public interface TeacherService {
     /**
      * 根据条件查询教师列表
      * @param teaName 姓名
-     * @param teNum 学号
+     * @param teaNum 学号
      */
     public List<Teacher> listTeacherByConditions(String teaName, String teaNum) throws Exception;
-
 
 
     public Teacher checkTeaLogin(Teacher teacher) throws Exception;

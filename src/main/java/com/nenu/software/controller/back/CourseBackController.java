@@ -44,6 +44,10 @@ public class CourseBackController {
         return jsonObject;
     }
 
+    /**
+     * 跳转至课程列表页面
+     * @return 课程列表页
+     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String toList() {
         return "grade/backpages/course-list";

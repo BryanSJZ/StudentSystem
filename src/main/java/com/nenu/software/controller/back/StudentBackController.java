@@ -34,6 +34,10 @@ public class StudentBackController {
     @Autowired
     private ClassService classService;
 
+    /**
+     * 跳转至学生列表
+     * @return 学生列表页面
+     */
     @RequestMapping(value = "toStudentList")
     public String toStudentList() {
         return "grade/backpages/student-list";
@@ -82,8 +86,6 @@ public class StudentBackController {
 
             }
         }
-
-
         JSONArray jsonArray = new JSONArray();
         if(studentList != null) {
             for(Student student : studentList) {
@@ -125,8 +127,8 @@ public class StudentBackController {
 
     /**
      * 根据id查询学生
-     * @param id
-     * @return
+     * @param id ID
+     * @return 学生对象JSON
      */
     @RequestMapping(value = "selectStudentById/{id}", method = RequestMethod.POST)
     @ResponseBody
@@ -233,7 +235,7 @@ public class StudentBackController {
 
     /**
      * 根据id删除学生
-     * @param id
+     * @param id ID
      * @return 1 - 删除成功
      *         0 - 删除失败
      */
@@ -315,6 +317,10 @@ public class StudentBackController {
         return jsonObject;
     }
 
+    /**
+     * 综合查询
+     * @return 内容JSON
+     */
     @RequestMapping("/query")
     @ResponseBody
     public JSONObject query() {

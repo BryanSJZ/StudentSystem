@@ -2,12 +2,24 @@ package com.nenu.software.common.entity;
 
 import javax.persistence.Entity;
 
+/**
+ * 学生实体类
+ * @author shanjz
+ * @since 2018/6/22 15:20
+ */
 @Entity
 public class Teacher {
 
+  //唯一标识符
   private long id;
+
+  //教师姓名
   private String teaName;
+
+  //教师工号
   private String teaNum;
+
+  //密码
   private String password;
 
 

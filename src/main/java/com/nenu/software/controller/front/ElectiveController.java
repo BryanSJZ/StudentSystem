@@ -5,7 +5,6 @@ import com.nenu.software.common.dto.StuScore;
 import com.nenu.software.common.entity.Course;
 import com.nenu.software.common.entity.Elective;
 import com.nenu.software.common.entity.Student;
-import com.nenu.software.common.util.Pages;
 import com.nenu.software.service.ElectiveService;
 import net.sf.json.JSON;
 import net.sf.json.JSONObject;
@@ -38,7 +37,7 @@ public class ElectiveController {
 
     /**
      * 添加选课
-     * @param
+     * @param session session对象
      * @param courseId 课程ID
      * @return 是否成功添加 1正常0异常
      */
@@ -56,11 +55,9 @@ public class ElectiveController {
         }
     }
 
-
-
     /**
      * 查询某学生未选课程
-     * @param
+     * @param session session对象
      * @return 未选课程列表
      */
     @RequestMapping(value = "/unelected/list",method = RequestMethod.GET)
@@ -76,10 +73,9 @@ public class ElectiveController {
         }
     }
 
-
     /**
      * 跳转到查询自己课程情况页面
-     * @return
+     * @return 课程及成绩页面
      */
     @RequestMapping("/toCourseScore")
     public String toCourseScore() {
@@ -89,8 +85,8 @@ public class ElectiveController {
 
     /**
      * 查询自己课程和成绩
-     * @param session
-     * @return
+     * @param session session对象
+     * @return 课程和成绩内容JSON
      */
     @RequestMapping("/getCourseScore")
     @ResponseBody

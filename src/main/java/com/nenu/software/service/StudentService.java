@@ -21,37 +21,37 @@ public interface StudentService {
     /**
      * 根据id删除学生
      * @param id 学生id
-     * @throws Exception
+     * @throws Exception 异常
      */
     public void deleteStudentById(Integer id) throws Exception;
 
     /**
      * 根据学号删除学生
      * @param stuNum 学生学号
-     * @throws Exception
+     * @throws Exception 异常
      */
     public void deleteStudentByStuNum(long stuNum) throws Exception;
 
     /**
      * 更新学生信息
-     * @param student
-     * @throws Exception
+     * @param student 学生对象
+     * @throws Exception 异常
      */
     public void updateStudent(Student student) throws Exception;
 
     /**
      * 根据id查询学生
-     * @param id
-     * @return
-     * @throws Exception
+     * @param id ID
+     * @return 学生对象
+     * @throws Exception 异常
      */
     public Student selectStudentById(Integer id) throws Exception;
 
     /**
      * 根据学号查询学生
-     * @param stuNum
-     * @return
-     * @throws Exception
+     * @param stuNum 学号
+     * @return 学生对象
+     * @throws Exception 异常
      */
     public Student selectStudentByStuNum(long stuNum) throws Exception;
 
@@ -60,18 +60,18 @@ public interface StudentService {
      * @param stuName 姓名
      * @param stuNum 学号
      * @param classId 班级id
-     * @return
-     * @throws Exception
+     * @return 学生对象列表
+     * @throws Exception 异常
      */
     public List<Student> listStudentByConditions(String stuName, long stuNum, Integer classId) throws Exception;
 
 
     /**
-     * 学生登陆-董
-     * @param stuNum
-     * @param password
-     * @return
-     * @throws Exception
+     * 学生登陆
+     * @param stuNum 学号
+     * @param password 密码
+     * @return 学生对象
+     * @throws Exception 异常
      */
     public Student checkLogin(long stuNum, String password) throws Exception;
 

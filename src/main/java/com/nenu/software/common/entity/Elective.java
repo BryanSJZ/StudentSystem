@@ -2,9 +2,15 @@ package com.nenu.software.common.entity;
 
 import javax.persistence.Entity;
 
+/**
+ * 选课实体类
+ * @author shanjz
+ * @since 2018/6/22 15:16
+ */
 @Entity
 public class Elective {
 
+  //唯一标识符
   private long id;
   private long stuId;
   private long courseId;

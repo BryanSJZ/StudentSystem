@@ -8,13 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * @Description:
- * @author: Dongsl161
- * @Date: 2017/9/18 19:17
+ * 登陆拦截器
+ * @author shanjz
+ * @since 2017/9/18 19:17
  */
 public class LoginInterceptor implements HandlerInterceptor {
 
 
+    /**
+     * 进入路径前进行拦截
+     * @param request 请求对象
+     * @param response 响应对象
+     * @param handler 处理对象
+     * @return 是否通过
+     * @throws Exception 异常
+     */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 设置字符编码
         request.setCharacterEncoding("utf-8");

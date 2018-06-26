@@ -17,29 +17,44 @@ import java.util.List;
 public interface ElectiveMapper {
 
     /**
-     * 新增选修课程
+     * 新增选课
+     * @param elective 选课对象
+     * @throws Exception 异常
      */
     public void newElective(@Param("elective") Elective elective) throws Exception;
 
     /**
-     * 根据条件删除选修课程
+     * 根据条件删除选课
+     * @param id 选课ID
+     * @param stuId 学生ID
+     * @param courseId 课程ID
+     * @throws Exception 异常
      */
     public void deleteElectiveByConditions(@Param("id") Integer id,
                                            @Param("stuId") Integer stuId,
                                            @Param("courseId") Integer courseId) throws Exception;
 
     /**
-     * 更新选修信息
+     * 更新选课信息
+     * @param elective 选课对象
+     * @throws Exception 异常
      */
     public void updateElective(@Param("elective") Elective elective) throws Exception;
 
     /**
-     * 根据id查找选修信息
+     * 通过ID查询选课
+     * @param id ID
+     * @return 选课对象
+     * @throws Exception 异常
      */
     public Elective selectElectiveById(@Param("id") Integer id) throws Exception;
 
     /**
-     * 根据条件查找选修信息
+     * 通过条件查询选课
+     * @param stuId 学生ID
+     * @param courseId 课程ID
+     * @return 选课列表
+     * @throws Exception 异常
      */
     public List<Elective> listElectiveByConditions(@Param("stuId") Integer stuId,
                                                    @Param("courseId") Integer courseId) throws Exception;
@@ -69,9 +84,9 @@ public interface ElectiveMapper {
 
     /**
      * 查询自己的选课和成绩
-     * @param stuId
-     * @return
-     * @throws Exception
+     * @param stuId 学生ID
+     * @return 列表
+     * @throws Exception 异常
      */
     public List<ElectiveDto> queryCourseAndScore(int stuId) throws Exception;
 

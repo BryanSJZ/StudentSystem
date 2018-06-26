@@ -16,31 +16,45 @@ public interface TeacherMapper {
 
     /**
      * 新增教师
+     * @param teacher 教师对象
+     * @throws Exception 异常
      */
     public void newTeacher(@Param("teacher") Teacher teacher) throws Exception;
 
     /**
-     * 根据id删除教师
+     * 通过ID删除教师
+     * @param id ID
+     * @throws Exception 异常
      */
     public void deleteTeacherById(@Param("id") Integer id) throws Exception;
 
     /**
      * 根据教师编号删除教师
+     * @param teaNum 教师工号
+     * @throws Exception 异常
      */
     public void deleteTeacherByTeaNum(@Param("teaNum") String teaNum) throws Exception;
 
     /**
-     * 更新教师信息
+     * 更新教师
+     * @param teacher 教师对象
+     * @throws Exception 异常
      */
     public void updateTeacher(@Param("teacher") Teacher teacher) throws Exception;
 
     /**
-     * 根据id查询教师
+     * 通过ID查找教师
+     * @param id ID
+     * @return 教师对象
+     * @throws Exception 异常
      */
     public Teacher selectTeacherById(@Param("id") Integer id) throws Exception;
 
     /**
-     * 根据教师编号查询教师
+     * 通过教师工号查找教师
+     * @param teaNum 教师工号
+     * @return 教师对象
+     * @throws Exception 异常
      */
     public Teacher selectTeacherByTeaNum(@Param("teaNum") String teaNum) throws Exception;
 
@@ -52,7 +66,12 @@ public interface TeacherMapper {
     public List<Teacher> listTeacherByConditions(@Param("teaName") String teaName,
                                                  @Param("teaNum") String teaNum) throws Exception;
 
-
+    /**
+     * 检查登陆
+     * @param teacher 教师对象
+     * @return 教师对象
+     * @throws Exception 异常
+     */
     public Teacher checkTeaLogin(Teacher teacher) throws Exception;
 
 

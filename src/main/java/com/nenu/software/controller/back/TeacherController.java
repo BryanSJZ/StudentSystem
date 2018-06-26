@@ -1,9 +1,7 @@
 package com.nenu.software.controller.back;
 
 import com.nenu.software.common.entity.Teacher;
-import com.nenu.software.common.util.Pages;
 import com.nenu.software.service.TeacherService;
-import net.sf.json.JSON;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +24,12 @@ public class TeacherController {
     @Autowired
     private TeacherService service;
 
+    /**
+     * 处理教师登陆
+     * @param teacher 教师对象
+     * @param session session对象
+     * @return 登陆成功或失败
+     */
     @RequestMapping("/login")
     public String teacherLogin(Teacher teacher, HttpSession session) {
         Teacher temp = null;
@@ -44,7 +48,7 @@ public class TeacherController {
 
     /**
      * 退出登录
-     * @return
+     * @return 登录页
      */
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
@@ -52,7 +56,10 @@ public class TeacherController {
         return "redirect:/loginBack.html";
     }
 
-
+    /**
+     * 跳转至修改密码页
+     * @return 修改密码页面
+     */
     @RequestMapping(value = "toChangePassword")
     public String toChangePassword() {
         return "grade/backpages/change-password";
@@ -79,6 +86,11 @@ public class TeacherController {
         }
     }
 
+    /**
+     * 获取教师姓名
+     * @param session session对象
+     * @return 教师姓名内容JSON
+     */
     @RequestMapping(value = "getTeacherName")
     @ResponseBody
     public JSONObject getTeacherName(HttpSession session) {

@@ -19,6 +19,10 @@ public class ClassController {
     @Autowired
     ClassService classService;
 
+    /**
+     * 获取班级列表
+     * @return 班级列表JSON
+     */
     @RequestMapping("/all")
     @ResponseBody
     public JSONObject list() {
@@ -32,15 +36,24 @@ public class ClassController {
         return jsonObject;
     }
 
+    /**
+     * 跳转至班级列表页面
+     * @return 班级列表页面
+     */
     @RequestMapping("list")
     public String toList() {
         return "grade/backpages/class-list";
     }
 
 
+    /**
+     * ajax删除班级
+     * @param id ID
+     * @return 成功与否JSON
+     */
     @RequestMapping("/delete")
     @ResponseBody
-    public JSONObject deleteCourse(@RequestParam("id")int id) {
+    public JSONObject deleteClass(@RequestParam("id")int id) {
         JSONObject jsonObject = new JSONObject();
         try {
             classService.deleteClassById(id);
@@ -52,6 +65,12 @@ public class ClassController {
         return jsonObject;
     }
 
+    /**
+     * 新增班级处理表单
+     * @param grade 年级
+     * @param name 班级
+     * @return 列表页
+     */
     @RequestMapping(value = "/new",method = RequestMethod.POST)
     public String newCourse(@RequestParam("grade") String grade,@RequestParam("className")String name) {
         Class aClass = new Class();

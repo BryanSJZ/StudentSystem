@@ -17,29 +17,44 @@ import java.util.List;
 public interface ElectiveService {
 
     /**
-     * 新增选修课程
+     * 新增选课信息
+     * @param elective 选课对象
+     * @throws Exception 异常
      */
     public void newElective(Elective elective) throws Exception;
 
     /**
      * 根据条件删除选修课程
+     * @param id ID
+     * @param stuId 学生ID
+     * @param courseId 课程ID
+     * @throws Exception 异常
      */
     public void deleteElectiveByConditions(Integer id,
                                            Integer stuId,
                                            Integer courseId) throws Exception;
 
     /**
-     * 更新选修信息
+     * 更新选课信息
+     * @param elective 选课对象
+     * @throws Exception 异常
      */
     public void updateElective(Elective elective) throws Exception;
 
     /**
-     * 根据id查找选修信息
+     * 根据ID查找选课
+     * @param id ID
+     * @return 选课对象
+     * @throws Exception 异常
      */
     public Elective selectElectiveById(Integer id) throws Exception;
 
     /**
      * 根据条件查找选修信息
+     * @param stuId 学生ID
+     * @param courseId 课程ID
+     * @return 选课列表
+     * @throws Exception 异常
      */
     public List<Elective> listElectiveByConditions(Integer stuId,
                                                    Integer courseId) throws Exception;
@@ -70,9 +85,9 @@ public interface ElectiveService {
 
     /**
      * 查询自己的选课和成绩
-     * @param stuId
-     * @return
-     * @throws Exception
+     * @param stuId 学生ID
+     * @return 选课DTO列表
+     * @throws Exception 异常
      */
     public List<ElectiveDto> queryCourseAndScore(int stuId) throws Exception;
 }

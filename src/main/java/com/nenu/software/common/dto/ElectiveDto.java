@@ -1,16 +1,28 @@
 package com.nenu.software.common.dto;
 
 /**
+ * 选课DTO
  * @author shanjz
  * @since 2018/6/23 13:12
  */
 public class ElectiveDto {
 
+    //选课ID
     private long id;
+
+    //学号
     private long stuId;
+
+    //学生姓名
     private String stuName;
+
+    //课程ID
     private long courseId;
+
+    //课程名称
     private String courseName;
+
+    //学生分数
     private double score;
 
 

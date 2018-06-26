@@ -1,19 +1,37 @@
 package com.nenu.software.common.dto;
 
 /**
+ * 学生及分数
  * @author shanjz
  * @since 2018/6/22 9:55
  */
 public class StuScore {
 
+    //选课ID
     private int eleId;
+
+    //学生ID
     private int stuId;
+
+    //课程ID
     private int courseId;
+
+    //课程名称
     private String course;
+
+    //学生学号
     private String stuNum;
+
+    //学生姓名
     private String stuName;
+
+    //年级
     private String grade;
+
+    //班级名称
     private String className;
+
+    //得分
     private double score;
 
     public int getEleId() {
