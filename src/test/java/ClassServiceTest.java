@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 /**
  * @author shanjz
  * @since 2018/6/20 10:27
@@ -45,8 +47,12 @@ public class ClassServiceTest {
 
     @Test
     public void selectClass() throws Exception {
-        System.out.println(classService.selectClassById(2));
-        System.out.println(classService.listClassByConditions(null, null));
+        System.out.println(classService.selectClassById(2).getClassName());
+//        System.out.println(classService.listClassByConditions(null, null));
+        List<Class> classList = classService.listClassByConditions(null, "二班");
+        for(Class clazz : classList) {
+
+        }
     }
 
 }

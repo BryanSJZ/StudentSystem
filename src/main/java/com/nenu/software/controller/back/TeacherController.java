@@ -33,11 +33,11 @@ public class TeacherController {
             temp = service.checkTeaLogin(teacher);
         } catch (Exception e) {
             e.printStackTrace();
-            return Pages.ERROR;
+            return "";
         }
         if(temp != null) {
             session.setAttribute("teacher", temp);
-            return Pages.BACKINDEX;
+            return "grade/backpages/index";
         }
         return "redirect:/loginBack.html";
     }

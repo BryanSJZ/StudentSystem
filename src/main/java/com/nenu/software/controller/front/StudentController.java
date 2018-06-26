@@ -46,11 +46,11 @@ public class StudentController {
         try {
             temp = studentService.checkLogin(student.getStuNum(), student.getPassword());
         } catch (Exception e) {
-            return Pages.ERROR;
+            e.printStackTrace();
         }
         if(temp != null) {
             session.setAttribute("student", temp);
-            return Pages.ELECTIVECOURSE;
+            return "grade/frontpages/course-list";
         }
         return "redirect:/login.html";
     }
@@ -74,7 +74,7 @@ public class StudentController {
      */
     @RequestMapping("/toPerson")
     public String toPerson() {
-        return Pages.TOPERSION;
+        return "grade/frontpages/change-password";
     }
 
 
@@ -104,7 +104,6 @@ public class StudentController {
 
     /**
      * 修改自己的密码和生日
-     * @param student
      * @param session
      * @return
      */
@@ -117,9 +116,10 @@ public class StudentController {
         student.setId(stuId);
         try {
             studentService.updateStudent(student);
-            return Pages.TOPERSION;
+            return "grade/frontpages/change-password";
         } catch (Exception e) {
-            return Pages.ERROR;
+            e.printStackTrace();
+            return "";
         }
     }
 

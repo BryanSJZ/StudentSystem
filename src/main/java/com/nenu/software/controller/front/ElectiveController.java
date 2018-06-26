@@ -33,7 +33,7 @@ public class ElectiveController {
 
     @RequestMapping(value = "/toElective")
     public String toElective() {
-        return Pages.ELECTIVECOURSE;
+        return "grade/frontpages/course-list";
     }
 
     /**
@@ -83,7 +83,7 @@ public class ElectiveController {
      */
     @RequestMapping("/toCourseScore")
     public String toCourseScore() {
-        return Pages.COURSESCORE;
+        return "grade/frontpages/course-list";
     }
 
 
