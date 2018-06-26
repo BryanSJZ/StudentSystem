@@ -79,18 +79,18 @@
     </select>
 
     <select id="listUnelectedCourses" resultType="com.nenu.software.common.entity.Course">
-SELECT
-id,
-t_course.course_name AS courseName
-FROM
-t_course
-WHERE
-t_course.id NOT IN (SELECT
-t_elective.course_id
-FROM
-t_elective
-WHERE
-t_elective.stu_id = #{stuId})
+        SELECT
+          id,
+          t_course.course_name AS courseName
+        FROM
+          t_course
+        WHERE
+          t_course.id NOT IN (SELECT
+          t_elective.course_id
+        FROM
+          t_elective
+        WHERE
+          t_elective.stu_id = #{stuId})
     </select>
 
 
@@ -109,7 +109,4 @@ t_elective.stu_id = #{stuId})
         WHERE
         t_student.id = #{stuId}
     </select>
-
-
-
 </mapper>
