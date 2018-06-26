@@ -48,7 +48,7 @@
         <div class="menu_dropdown bk_2">
             <dl id="course">
                 <dt>
-                    <a href="/StuSystem/backCourse/list">
+                    <a href="/StuSystem/backClass/list">
                         <i class="Hui-iconfont">&#xe616;</i> 课程管理
                     </a>
                 </dt>
@@ -85,57 +85,33 @@
         </nav>
         <div class="Hui-article">
             <article class="cl pd-20">
-                <div id="require-div" class="row cl">
+                <div id="add-class" class="row cl add">
+                    <h3 style="margin-top: 0; padding-top: 0; color: #5A738E;">查询条件</h3>
                     <div class="col-xs-12 col-sm-3">
-                        <input type="text" id="student-id" class="input-text size-S" placeholder="学生学号">
+                        <input type="text" id="student-id" class="input-text" placeholder="学生学号">
                     </div>
                     <div class="col-xs-12 col-sm-3">
-                        <input type="text" id="student-name" class="input-text size-S" placeholder="学生姓名">
+                        <input type="text" id="student-name" class="input-text" placeholder="学生姓名">
                     </div>
                     <div class="col-xs-12 col-sm-3">
-                        <input type="text" id="student-class" class="input-text size-S" placeholder="学生班级">
+                        <input type="text" id="student-class" class="input-text" placeholder="学生班级">
                     </div>
                     <div class="col-xs-12 col-sm-3">
                         <button class="btn btn-primary radius" id="require">查询</button>
                     </div>
                 </div>
+                <h3 style="margin-top: 0; padding-left: 8px; color: #5A738E;">学生列表</h3>
                 <table class="table table-border table-bordered table-striped">
                     <thead class="text-c">
-                        <tr>
-                            <th>学号</th>
-                            <th>姓名</th>
-                            <th>班级</th>
-                            <th>操作</th>
+                        <tr style="height: 50px;">
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">学号</th>
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">姓名</th>
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">班级</th>
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">操作</th>
                         </tr>
                     </thead>
                     <tbody class="text-c">
-                        <tr>
-                            <td>1111</td>
-                            <td>张三</td>
-                            <td>1</td>
-                            <td index="1111">
-                                <button class="btn btn-secondary radius update">修改</button>
-                                <button class="btn btn-danger radius delete">删除</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1111</td>
-                            <td>张三</td>
-                            <td>1</td>
-                            <td index="111">
-                                <button class="btn btn-secondary radius update">修改</button>
-                                <button class="btn btn-danger radius delete">删除</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1111</td>
-                            <td>张三</td>
-                            <td>1</td>
-                            <td index="11">
-                                <button class="btn btn-secondary radius update">修改</button>
-                                <button class="btn btn-danger radius delete">删除</button>
-                            </td>
-                        </tr>
+
                     </tbody>
                 </table>
 

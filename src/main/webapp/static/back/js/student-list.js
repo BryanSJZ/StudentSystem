@@ -27,7 +27,7 @@ $(function(){
         },
         success: function (data) {
             for(var i = 0;i < data.json.length;i++){
-                $("tbody").append('<tr><td>'+data.json[i].stuNum+'</td><td>'+data.json[i].stuName+'</td><td>'+data.json[i].className+'</td><td><button class=\"btn btn-danger radius delete\" id="'+data.json[i].id+'" >删除</button><button class="btn btn-secondary radius update" index="'+data.json[i].id+'" >修改</button></td></tr>>')
+                $("tbody").append('<tr><td>'+data.json[i].stuNum+'</td><td>'+data.json[i].stuName+'</td><td>'+data.json[i].className+'</td><td><button style="font-size: 12px; background: #337ab7; color: white;" class=\"btn radius delete\" id="'+data.json[i].id+'" >删除</button><button style="font-size: 12px; background: #33AECC; color: white;" class="btn btn-secondary radius update" index="'+data.json[i].id+'" >修改</button></td></tr>>')
             }
 
             //删除

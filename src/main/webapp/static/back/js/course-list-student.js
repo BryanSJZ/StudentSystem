@@ -13,7 +13,7 @@ $().ready(function () {
             if(data.length > 0){
                 console.log(data[0].courseName);
                 for (var i = 0; i < data.length; i++) {
-                    $("tbody").append('<tr><td>'+data[i].courseName+'</td><td><button id="'+data[i].id+'" class="btn btn-secondary radius chose">选课</button></tr>');
+                    $("tbody").append('<tr><td>'+data[i].courseName+'</td><td><button style="font-size: 12px; background: rgb(51, 103, 214); color: white;" id="'+data[i].id+'" class="btn btn-secondary radius chose">选课</button></tr>');
                 }
             }
             else {

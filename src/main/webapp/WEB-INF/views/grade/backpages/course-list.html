@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../static/back/skin/default/skin.css" id="skin" />
     <link rel="stylesheet" type="text/css" href="../static/back/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="../static/back/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../static/back/css/page.css" />
 
     <title>查询课程</title>
 
@@ -83,24 +84,30 @@
         </nav>
         <div class="Hui-article">
             <article class="cl pd-20">
-                <table class="table table-border table-bordered table-striped">
-                    <thead class="text-c">
-                        <tr>
-                            <th>课程编号</th>
-                            <th>课程名称</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-c">
-                    </tbody>
-                </table>
-
                 <div id="add-course" class="row cl add">
-                    <h3>添加课程</h3>
+                    <h3 style="margin-top: 0; padding-top: 0; color: #5A738E;">添加课程</h3>
                     <input type="text" class="input-text col-sm-6" placeholder="课程名称" id="new-course">
                     <button class="btn btn-primary radius" id="submit-add">确认添加</button>
                 </div>
+                <h3 style="margin-top: 0;padding-left: 8px; color: #5A738E;">课程列表</h3>
+                <table class="table table-border table-bordered table-striped">
+                    <thead class="text-c">
+                        <tr style="height: 50px;">
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">课程编号</th>
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">课程名称</th>
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-c grid-body">
+                    </tbody>
+                </table>
             </article>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 wrap">
+                    <!--分页-->
+                    <div class="page" id="page"></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -110,6 +117,7 @@
     <script type="text/javascript" src="../static/back/js/H-ui.js"></script>
     <script type="text/javascript" src="../static/back/js/bootstrap.js"></script>
     <script type="text/javascript" src="../static/back/js/H-ui.admin.page.js"></script>
+    <script type="text/javascript" src="../static/back/js/page.js"></script>
     <!--/_footer /作为公共模版分离出去-->
     <script type="text/javascript" src="../static/back/js/course-list.js"></script>
 </body>

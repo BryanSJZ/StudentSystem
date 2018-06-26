@@ -24,7 +24,7 @@ $(function () {
             for(var i = 0;i < data.list.length;i++){
                 var str = data.list[i].grade + data.list[i].className;
                 var classname = data.list[i].className;
-                $("tbody").append('<tr><td>'+data.list[i].id+'</td><td>'+str+'</td><td><button class=\"btn btn-danger radius delete\" id="'+data.list[i].id+'">删除</button><button class="btn btn-secondary radius mangage" id="'+data.list[i].id+'"><a href="/StuSystem/back/student/toClassStudentList?className='+classname+'">管理</a></button></td></tr>>')
+                $("tbody").append('<tr><td>'+data.list[i].id+'</td><td>'+str+'</td><td><button style="font-size: 12px; background: #337ab7; color: white;" class=\"btn radius delete\" id="'+data.list[i].id+'">删除</button><button style="font-size: 12px; background: #33AECC; color: white;" class="btn btn-secondary radius mangage" id="'+data.list[i].id+'"><a style="color: white;" href="/StuSystem/back/student/toClassStudentList?className='+classname+'">管理</a></button></td></tr>>')
             }
 
             //删除

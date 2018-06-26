@@ -48,7 +48,7 @@
         <div class="menu_dropdown bk_2">
             <dl id="course">
                 <dt>
-                    <a href="/StuSystem/backCourse/list">
+                    <a href="/StuSystem/backClass/list">
                         <i class="Hui-iconfont">&#xe616;</i> 课程管理
                     </a>
                 </dt>
@@ -83,12 +83,23 @@
         </nav>
         <div class="Hui-article">
             <article class="cl pd-20">
+                <div id="add-class" class="row cl add">
+                    <h3 style="margin-top: 0; padding-top: 0; color: #5A738E;">添加班级</h3>
+                    <div class="col-sm-4">
+                        <input type="text" class=" input-text" placeholder="年级" id="new-grade">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="input-text" placeholder="班级" id="new-class">
+                    </div>
+                    <button class="btn btn-primary radius" id="submit-add">确认添加</button>
+                </div>
+                <h3 style="margin-top: 0;padding-left: 8px; color: #5A738E;">班级列表</h3>
                 <table class="table table-border table-bordered table-striped">
                     <thead class="text-c">
-                        <tr>
-                            <th>班级编号</th>
-                            <th>班级名称</th>
-                            <th>操作</th>
+                        <tr style="height: 50px;">
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">班级编号</th>
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">班级名称</th>
+                            <th style="color: #5A738E; line-height: 32px; font-size: 15px">操作</th>
                         </tr>
                     </thead>
                     <tbody class="text-c">
@@ -112,16 +123,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <div id="add-class" class="row cl add">
-                    <h3>添加班级</h3>
-                    <div class="col-sm-4">
-                        <input type="text" class=" input-text" placeholder="年级" id="new-grade">
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="text" class="col-sm-2 input-text" placeholder="班级" id="new-class">
-                    </div>
-                    <button class="btn btn-primary radius" id="submit-add">确认添加</button>
-                </div>
             </article>
         </div>
     </section>
